@@ -62,3 +62,17 @@ $ FLASK_APP=app.py FLASK_DEBUG=1 flask run
 출력된 화면을 보면 방금 실행시킨 API, 즉 app.py가 http://127.0.0.1:5000에서 돌아가고 있다는 뜻이다. 참고로 "127.0.0.1"은 로컬호스트의 IP이다. 
 
 __&#10004; STEP 05 :__ httpie설치 <br>
+
+ping 엔드포인트가 제대로 돌아가는지 실제로 API에 접속해서 테스트해보자. <br>
+
+ping 엔드포인트에 접속하기 위해서는 ping 엔드포인트에 HTTP 요청(request)을 보내면 된다. HTTP 요청을 보내는 방법에는 여러가지가 있지만, 이 책에서는 터미널 명령어 환경에서 HTTP 요청을 보낼 수 있게 해주는 httpie라는 툴을 주로 사용할 것이다. 
+```
+$ sudo apt install httpie
+```
+httpi 설치 후 http라는 명령어를 터미널에서 사용하여 HTTP 요청을 보낼 수 있다. API가 실행되고 있는 상태에서 터미널 창을 새로 추가로 하나 열어 새로 tab을 생성한 후 아래 명령어 실행
+```
+$ http -v GET http://localhost:5000/ping
+```
+![](img/ch3-2.png)
+이미 실행되고 있는 API 에 HTTP 요청을 보내면, "pong" 텍스트로 응답받는것을 확인 가능. 
+
